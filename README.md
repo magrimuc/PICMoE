@@ -137,17 +137,29 @@ python phi3_inference.py --full "Was sind die Vorteile von MoE-Architekturen?"
 
 ## Docker Deployment
 
-Build and run PICMoE in an isolated container:
+Build and run PICMoE in an isolated container. PICMoE supports both **consumer hardware (CPU simulation)** and **enterprise server racks with physical Q.ANT NPUs**:
 
+### A. Consumer Hardware (CPU Simulation, No Drivers Needed)
 ```bash
-# Build the Docker image
-docker build -t picmoe .
+# Build the default image
+docker build -t picmoe:cpu .
 
 # Run the fast NPU demo
-docker run --rm picmoe
+docker run --rm picmoe:cpu
 
 # Run full inference (with persistent Hugging Face cache mount)
-docker run --rm -v ${HOME}/.cache/huggingface:/app/cache/huggingface picmoe --full "Erklaere optisches Rechnen in einem Satz."
+docker run --rm -v ${HOME}/.cache/huggingface:/app/cache/huggingface picmoe:cpu --full "Erklaere optisches Rechnen in einem Satz."
+```
+
+### B. Server Rack with Physical Q.ANT NPU Hardware
+On server racks equipped with PCIe-connected Q.ANT NPUs, pass `--build-arg BACKEND=hardware` to build with the native hardware driver bindings:
+
+```bash
+# Build with hardware driver bindings
+docker build --build-arg BACKEND=hardware -t picmoe:npu .
+
+# Run with hardware device passthrough (pass the host NPU device node)
+docker run --rm --device /dev/qant_npu0 picmoe:npu
 ```
 
 ---
