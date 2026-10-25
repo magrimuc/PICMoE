@@ -1,0 +1,36 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.log
+
+# Caches and temporary directories
+.cache/
+cache/
+tmp/
+
+# Downloaded Hugging Face model weights & checkpoints
+models/
+
+# Large ZIP archives (unpacked wheels reside in qant_wheels_cpu/)
+wheels-cpu.zip
+wheels-default.zip
+
+# Cloned upstream sub-repositories (maintained upstream by Q-ANT-GmbH)
+qant_native_computing_toolkit/
+qant_native_computing_toolkit_examples/
+
+# Environment directories
+.venv/
+venv/
+env/
+ENV/
+
+# IDE / Editor configuration
+.vscode/
+.idea/
+start.code-workspace
+
+# OS files
+.DS_Store
+Thumbs.db

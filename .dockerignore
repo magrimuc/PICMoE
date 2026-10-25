@@ -1,0 +1,25 @@
+__pycache__/
+*.py[cod]
+*$py.class
+*.log
+
+# Lokale Entwicklung & IDEs
+.git/
+.gitignore
+.vscode/
+.idea/
+start.code-workspace
+
+# Lokale virtuelle Umgebungen
+.venv/
+venv/
+env/
+
+# Grosse ZIP-Archive (bereits in qant_wheels_cpu/ entpackt)
+wheels-cpu.zip
+wheels-default.zip
+
+# Temporaere Verzeichnisse & Cache
+.cache/
+cache/
+tmp/
