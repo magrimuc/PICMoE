@@ -31,6 +31,9 @@ ENV/
 .idea/
 start.code-workspace
 
+# Sub-projects / API service
+API/
+
 # OS files
 .DS_Store
 Thumbs.db
